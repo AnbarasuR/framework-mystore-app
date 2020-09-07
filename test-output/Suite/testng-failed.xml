@@ -8,8 +8,8 @@
         <methods>
           <include name="fnLaunchBrowser"/>
           <include name="fnCreateNewAccoount"/>
+          <include name="printdata"/>
           <include name="fncreateTestReultFolder"/>
-          <include name="fnRegisterNewUser" invocation-numbers="0"/>
           <include name="closeBrowsers"/>
         </methods>
       </class> <!-- framework.javaframework.MyStoresTest -->

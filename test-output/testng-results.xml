@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-09-01T23:41:32 IST" name="Suite" finished-at="2020-09-01T23:44:18 IST" duration-ms="166516">
+  <suite started-at="2020-09-07T22:04:55 IST" name="Suite" finished-at="2020-09-07T22:05:31 IST" duration-ms="35761">
     <groups>
     </groups>
-    <test started-at="2020-09-01T23:41:32 IST" name="Test" finished-at="2020-09-01T23:44:18 IST" duration-ms="166516">
+    <test started-at="2020-09-07T22:04:55 IST" name="Test" finished-at="2020-09-07T22:05:31 IST" duration-ms="35761">
       <class name="framework.javaframework.MyStoresTest">
-        <test-method is-config="true" signature="fncreateTestReultFolder()[pri:0, instance:framework.javaframework.MyStoresTest@5e316c74]" started-at="2020-09-01T23:41:31 IST" name="fncreateTestReultFolder" finished-at="2020-09-01T23:41:32 IST" duration-ms="1059" status="PASS">
+        <test-method is-config="true" signature="fncreateTestReultFolder()[pri:0, instance:framework.javaframework.MyStoresTest@3967e60c]" started-at="2020-09-07T22:04:55 IST" name="fncreateTestReultFolder" finished-at="2020-09-07T22:04:55 IST" duration-ms="37" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fncreateTestReultFolder -->
-        <test-method is-config="true" signature="fnLaunchBrowser(java.lang.String)[pri:0, instance:framework.javaframework.MyStoresTest@5e316c74]" started-at="2020-09-01T23:41:32 IST" name="fnLaunchBrowser" finished-at="2020-09-01T23:42:00 IST" duration-ms="27478" status="PASS">
+        <test-method is-config="true" signature="fnLaunchBrowser(java.lang.String)[pri:0, instance:framework.javaframework.MyStoresTest@3967e60c]" started-at="2020-09-07T22:04:55 IST" name="fnLaunchBrowser" finished-at="2020-09-07T22:05:10 IST" duration-ms="14613" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,7 +22,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fnLaunchBrowser -->
-        <test-method signature="fnCreateNewAccoount(java.lang.String)[pri:0, instance:framework.javaframework.MyStoresTest@5e316c74]" started-at="2020-09-01T23:42:00 IST" name="fnCreateNewAccoount" data-provider="validUserID" finished-at="2020-09-01T23:42:29 IST" duration-ms="29349" status="PASS">
+        <test-method signature="fnCreateNewAccoount(java.lang.String)[pri:0, instance:framework.javaframework.MyStoresTest@3967e60c]" started-at="2020-09-07T22:05:10 IST" name="fnCreateNewAccoount" data-provider="validUserID" finished-at="2020-09-07T22:05:17 IST" duration-ms="6724" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -33,82 +33,58 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fnCreateNewAccoount -->
-        <test-method signature="fnRegisterNewUser(java.lang.String, java.lang.String, java.lang.String, int, java.lang.String, java.lang.String)[pri:0, instance:framework.javaframework.MyStoresTest@5e316c74]" started-at="2020-09-01T23:42:29 IST" name="fnRegisterNewUser" data-provider="getregisterUserValues" finished-at="2020-09-01T23:43:29 IST" depends-on-methods="framework.javaframework.MyStoresTest.fnCreateNewAccoount" duration-ms="59667" status="FAIL">
+        <test-method signature="printdata(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:framework.javaframework.MyStoresTest@3967e60c]" started-at="2020-09-07T22:05:18 IST" name="printdata" data-provider="getRegistrationdata" finished-at="2020-09-07T22:05:30 IST" depends-on-methods="framework.javaframework.MyStoresTest.fnCreateNewAccoount" duration-ms="12647" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[FIRSTTES]]>
+                <![CDATA[aramacha@test.com]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[LASTTEST]]>
+                <![CDATA[Anbarasu]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Tester12!]]>
+                <![CDATA[R]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[20]]>
+                <![CDATA[aramacha@test.com]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[May]]>
+                <![CDATA[Male]]>
               </value>
             </param>
             <param index="5">
               <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[May]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
                 <![CDATA[1993]]>
               </value>
             </param>
+            <param index="8">
+              <value>
+                <![CDATA[Tester12!]]>
+              </value>
+            </param>
           </params>
-          <exception class="java.lang.ClassCastException">
-            <message>
-              <![CDATA[class java.util.ArrayList cannot be cast to class org.openqa.selenium.WebElement (java.util.ArrayList is in module java.base of loader 'bootstrap'; org.openqa.selenium.WebElement is in unnamed module of loader 'app')]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class org.openqa.selenium.WebElement (java.util.ArrayList is in module java.base of loader 'bootstrap'; org.openqa.selenium.WebElement is in unnamed module of loader 'app')
-at resuableMethods.HelperMethods.SelectDropdwonByValue(HelperMethods.java:67)
-at framework.javaframework.MyStoresTest.fnRegisterNewUser(MyStoresTest.java:88)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:764)
-at org.testng.TestRunner.run(TestRunner.java:585)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-at org.testng.TestNG.runSuites(TestNG.java:1069)
-at org.testng.TestNG.run(TestNG.java:1037)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.ClassCastException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- fnRegisterNewUser -->
-        <test-method is-config="true" signature="closeBrowsers()[pri:0, instance:framework.javaframework.MyStoresTest@5e316c74]" started-at="2020-09-01T23:44:08 IST" name="closeBrowsers" finished-at="2020-09-01T23:44:09 IST" duration-ms="754" status="PASS">
+        </test-method> <!-- printdata -->
+        <test-method is-config="true" signature="closeBrowsers()[pri:0, instance:framework.javaframework.MyStoresTest@3967e60c]" started-at="2020-09-07T22:05:30 IST" name="closeBrowsers" finished-at="2020-09-07T22:05:31 IST" duration-ms="649" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowsers -->

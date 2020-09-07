@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-failed">Suite</span>
+              <span class="suite-name border-passed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,21 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Suite">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="framework.javaframework.MyStoresTest" class="method navigator-link" hash-for-method="fnRegisterNewUser(FIRSTTES, LASTTEST, Tester12!, 20, May, 1993)">fnRegisterNewUser(FIRSTTES, LASTTEST, Tester12!, 20, May, 1993)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Suite -->
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -119,6 +105,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="framework.javaframework.MyStoresTest" class="method navigator-link" hash-for-method="fnCreateNewAccoount(aramacha@test.com)">fnCreateNewAccoount(aramacha@test.com)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="framework.javaframework.MyStoresTest" class="method navigator-link" hash-for-method="printdata(aramacha@test.com, Anbarasu, R, aramacha@test.com, Male, 20, May, 1993, Tester12!)">printdata(aramacha@test.com, Anbarasu, R, aramacha@test.com, Male, 20, May, 1993, Tester12!)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -133,28 +124,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">framework.javaframework.MyStoresTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="fnRegisterNewUser(FIRSTTES, LASTTEST, Tester12!, 20, May, 1993)">
-                  </a> <!-- fnRegisterNewUser(FIRSTTES, LASTTEST, Tester12!, 20, May, 1993) -->
-                  <span class="method-name">fnRegisterNewUser</span>
-                  <span class="parameters">(FIRSTTES, LASTTEST, Tester12!, 20, May, 1993)</span>
-                  <div class="stack-trace">java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class org.openqa.selenium.WebElement (java.util.ArrayList is in module java.base of loader &apos;bootstrap&apos;; org.openqa.selenium.WebElement is in unnamed module of loader &apos;app&apos;)
-	at resuableMethods.HelperMethods.SelectDropdwonByValue(HelperMethods.java:67)
-	at framework.javaframework.MyStoresTest.fnRegisterNewUser(MyStoresTest.java:88)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 27 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -167,6 +136,14 @@
                   </a> <!-- fnCreateNewAccoount(aramacha@test.com) -->
                   <span class="method-name">fnCreateNewAccoount</span>
                   <span class="parameters">(aramacha@test.com)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="printdata(aramacha@test.com, Anbarasu, R, aramacha@test.com, Male, 20, May, 1993, Tester12!)">
+                  </a> <!-- printdata(aramacha@test.com, Anbarasu, R, aramacha@test.com, Male, 20, May, 1993, Tester12!) -->
+                  <span class="method-name">printdata</span>
+                  <span class="parameters">(aramacha@test.com, Anbarasu, R, aramacha@test.com, Male, 20, May, 1993, Tester12!)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -226,18 +203,18 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'fnRegisterNewUser')
+data.setCell(0, 1, 'printdata')
 data.setCell(0, 2, 'framework.javaframework.MyStoresTest')
-data.setCell(0, 3, 59667);
+data.setCell(0, 3, 12647);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'fnCreateNewAccoount')
 data.setCell(1, 2, 'framework.javaframework.MyStoresTest')
-data.setCell(1, 3, 29349);
+data.setCell(1, 3, 6724);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 19 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -270,21 +247,19 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">fnLaunchBrowser(http://automationpractice.com/index.php)</span>
-                <span class="method-start">1220 ms</span>
+                <span class="method-start">51 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">fnCreateNewAccoount(aramacha@test.com)</span>
-                <span class="method-start">29036 ms</span>
+                <span class="method-start">14680 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">fnRegisterNewUser(FIRSTTES, LASTTEST, Tester12!, 20, May, 1993)</span>
-                <span class="method-start">58564 ms</span>
+                <span class="method-name">printdata(aramacha@test.com, Anbarasu, R, aramacha@test.com, Male, 20, May, 1993, Tester12!)</span>
+                <span class="method-start">22499 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">closeBrowsers</span>
-                <span class="method-start">157254 ms</span>
+                <span class="method-start">35149 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

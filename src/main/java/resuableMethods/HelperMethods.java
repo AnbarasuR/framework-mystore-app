@@ -1,14 +1,25 @@
 package resuableMethods;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.NumberToTextConverter;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ByClassName;
 import org.openqa.selenium.OutputType;
@@ -22,6 +33,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import framework.javaframework.MyStoresPage;
+
 
 public class HelperMethods {
 
@@ -111,9 +123,9 @@ public class HelperMethods {
 	}
 
 	/******************************************************************************************************
-	 * Method Name: getCurrentDate() 
-	 * Method Description: This method will get the system current date in YYYY-MM-dd_HH-mm-ss AM/PM
-	 ******************************************************************************************************/
+	/ * Method Name: getCurrentDate() 
+	/ * Method Description: This method will get the system current date in YYYY-MM-dd_HH-mm-ss AM/PM
+	/ ******************************************************************************************************/
 
 	public String getCurrentDate() {
 		DateTimeFormatter date = DateTimeFormatter.ofPattern("E YYYY-MM-dd_HH-mm-ss a");
@@ -132,5 +144,86 @@ public class HelperMethods {
 		WebDriverWait wait = new WebDriverWait (driver,20);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ele));
 	}
+	
+	public   ArrayList<Object> testdataManager(String TCID) throws IOException {
+		ArrayList<Object> values = new ArrayList<Object>();
+		try {
+
+			String uDirect = System.getProperty("user.dir");
+			File filePath = new File(uDirect + "\\" + "AppName" + "\\" + "TestData.xlsx");
+			FileInputStream fis = new FileInputStream(filePath);
+			XSSFWorkbook workbook = new XSSFWorkbook(fis);
+			int sheetCount = workbook.getNumberOfSheets();
+			for (int i = 0; i < sheetCount; i++) {
+				if (workbook.getSheetName(i).equalsIgnoreCase("UAT")) {
+					XSSFSheet desiredSheet = workbook.getSheetAt(i);
+					Iterator<Row> Rows = desiredSheet.iterator();
+
+					Row frow = Rows.next();
+					Iterator<Cell> rowColum = frow.iterator();
+					int temp=0;
+					int testCaseColumn=0;
+					while (rowColum.hasNext()) {
+						Cell fRowCells = rowColum.next();
+						if(fRowCells.getStringCellValue().equalsIgnoreCase("TEST_CASE"))
+						{
+							testCaseColumn=temp;	
+						}
+						temp++;
+						
+					}
+					while(Rows.hasNext())
+					{
+						Row tcRow = Rows.next();
+						if(tcRow.getCell(testCaseColumn).getStringCellValue().equalsIgnoreCase(TCID))
+						{
+							Iterator<Cell> cellVal = tcRow.iterator();
+							while(cellVal.hasNext())
+							{
+								Cell val =cellVal.next();
+								if(val.getCellType()==CellType.STRING)
+								{
+									values.add(val.getStringCellValue());
+								}
+								else if(val.getCellType()==CellType.NUMERIC)
+								{
+									values.add(NumberToTextConverter.toText(val.getNumericCellValue()));
+									
+								}
+							}
+						}
+					}
+				}
+			}
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+		}
+		return values;
+
+	}
+	
+//	public String[] getTestData(String TestCaseName) throws IOException
+//	{
+//		int _testDataCount=0;
+//		ArrayList<String> obj = testdataManager(TestCaseName);
+//		
+//		_testDataCount = obj.size();
+//		String[] data = new String[_testDataCount] ;
+//		try {			
+//			for(int i=1; i<_testDataCount; i++)
+//			{
+//			data[i] = obj.get(i);
+//			}
+//			//return data;		
+//		}
+//		catch(Exception e)
+//		{
+//			System.out.println(e);
+//		}
+//		return data;
+//		
+//	}
+//	
 
 }

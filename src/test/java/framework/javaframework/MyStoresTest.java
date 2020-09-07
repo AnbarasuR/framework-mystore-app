@@ -2,6 +2,7 @@ package framework.javaframework;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -81,25 +82,23 @@ public class MyStoresTest extends HelperMethods {
 	 * ****************************************************************
 	 * 
 	 * Method Name: fnRegisterNewUser 
-	 * Description: Fill registration form
+	 * Description: Fill registration form [data hard coded from 
 	 * 
 	 *****************************************************************/
-
-	@Test(dependsOnMethods = { "fnCreateNewAccoount" }, dataProvider = "getregisterUserValues")
-
-	public void fnRegisterNewUser(String fn, String ln, String pwd, int index, String month, String year)
-			throws Exception {
-		// Thread.sleep(3000);
+	@Test(dependsOnMethods = {"fnCreateNewAccoount"},dataProvider="getRegistrationdata")
+	public void printdata( String UserID,String FirstName,String LastName,String Email,String Gender,String DBODate,String DOBMonth,String DOBYear,String Password) throws Exception
+	{
+		
 		waitForElementToDisplay(driver, MyStoresPage.genderMr);
 		takeScreenPrint(driver, folderPath);
 		driver.findElement(MyStoresPage.genderMr).click();
-		EnterText(driver, MyStoresPage.pInfoFirstName, fn);
-		EnterText(driver, MyStoresPage.pInfoLasttName, ln);
+		EnterText(driver, MyStoresPage.pInfoFirstName, FirstName);
+		EnterText(driver, MyStoresPage.pInfoLasttName, LastName);
 		String email = driver.findElement(MyStoresPage.pInfoEmail).getText();
-		EnterText(driver, MyStoresPage.pInfoPassword, pwd);
-		SelectDropdwonByIndex(driver, MyStoresPage.pInfoBirthDate, index);
-		SelectDropdwonByValue(driver, MyStoresPage.pInfoBirthYear, year);
-		SelectDropdwonByText(driver, MyStoresPage.pInfoBirthMonth, month);
+		EnterText(driver, MyStoresPage.pInfoPassword, Password);
+		SelectDropdwonByIndex(driver, MyStoresPage.pInfoBirthDate, Integer.parseInt(DBODate));
+		SelectDropdwonByValue(driver, MyStoresPage.pInfoBirthYear, DOBYear);
+		SelectDropdwonByText(driver, MyStoresPage.pInfoBirthMonth, DOBMonth);
 		takeScreenPrint(driver, folderPath);
 	}
 
@@ -112,15 +111,28 @@ public class MyStoresTest extends HelperMethods {
 	}
 
 	@DataProvider
-	public Object[][] getregisterUserValues() {
-		Object[][] regData = new Object[1][6];
-		regData[0][0] = "FIRSTTES";
-		regData[0][1] = "LASTTEST";
-		regData[0][2] = "Tester12!";
-		regData[0][3] = 20;
-		regData[0][4] = "May";
-		regData[0][5] = "1993";
-		return regData;
+	public Object[][] getRegistrationdata() throws Exception
+	{
+		String testCase ="TC01";
+		ArrayList<Object> getTestData=testdataManager(testCase);
+		int size = getTestData.size();
+		System.out.println(size);
+		Object[][] data = new Object[1][size-1];
+		int k=0;
+		for(int i=0; i<size; i++)
+		{
+			if(getTestData.get(i).equals(testCase))
+			{
+				System.out.println("data identified as Test case name");
+			}
+			else
+			{
+				
+				data[0][k] = getTestData.get(i);
+				k++;
+			}
+		}
+		return data;
 	}
 
 	@AfterClass
