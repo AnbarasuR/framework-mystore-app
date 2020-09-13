@@ -1,15 +1,10 @@
 package framework.javaframework;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -19,7 +14,8 @@ import resuableMethods.HelperMethods;
 
 public class MyStoresTest extends HelperMethods {
 
-	WebDriver driver;
+	public WebDriver driver;
+	
 	String folderPath;
 
 	/*
@@ -48,11 +44,12 @@ public class MyStoresTest extends HelperMethods {
 	 ******************************************************************/
 	@BeforeClass
 	@Parameters({ "URL" })
-	public void fnLaunchBrowser(String URL) {
-		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\Drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	public void fnLaunchBrowser(String URL) throws Exception {
+		driver = LaunchDriver();
 		driver.get(URL);
+		log.info(URL +" launched");
+		driver = impliciWait(driver);
+		
 
 	}
 
@@ -66,16 +63,16 @@ public class MyStoresTest extends HelperMethods {
 	@Test(enabled = true, dataProvider = "validUserID")
 	public void fnCreateNewAccoount(String acc) throws Exception {
 		driver.findElement(MyStoresPage.SignIn);
-		takeScreenPrint(driver, folderPath);
+		takeScreenPrint( folderPath);
 		driver.findElement(MyStoresPage.SignIn).click();
 		driver.findElement(MyStoresPage.CreateAccountHeader);
-		EnterText(driver, MyStoresPage.EmailAddressBox, acc);
+		EnterText(MyStoresPage.EmailAddressBox, acc);
 		// driver.findElement(MyStoresPage.EmailAddressBox).sendKeys(acc);
 		driver.findElement(MyStoresPage.CreateAccountHeader).click();
 		driver.findElement(MyStoresPage.ValidEmailIDColourCode);
-		takeScreenPrint(driver, folderPath);
+		takeScreenPrint(folderPath);
 		driver.findElement(MyStoresPage.CreateAccButton).click();
-		takeScreenPrint(driver, folderPath);
+		takeScreenPrint( folderPath);
 	}
 
 	/*
@@ -89,17 +86,17 @@ public class MyStoresTest extends HelperMethods {
 	public void printdata( String UserID,String FirstName,String LastName,String Email,String Gender,String DBODate,String DOBMonth,String DOBYear,String Password) throws Exception
 	{
 		
-		waitForElementToDisplay(driver, MyStoresPage.genderMr);
-		takeScreenPrint(driver, folderPath);
+		waitForElementToDisplay( MyStoresPage.genderMr);
+		takeScreenPrint( folderPath);
 		driver.findElement(MyStoresPage.genderMr).click();
-		EnterText(driver, MyStoresPage.pInfoFirstName, FirstName);
-		EnterText(driver, MyStoresPage.pInfoLasttName, LastName);
+		EnterText( MyStoresPage.pInfoFirstName, FirstName);
+		EnterText( MyStoresPage.pInfoLasttName, LastName);
 		String email = driver.findElement(MyStoresPage.pInfoEmail).getText();
-		EnterText(driver, MyStoresPage.pInfoPassword, Password);
-		SelectDropdwonByIndex(driver, MyStoresPage.pInfoBirthDate, Integer.parseInt(DBODate));
-		SelectDropdwonByValue(driver, MyStoresPage.pInfoBirthYear, DOBYear);
-		SelectDropdwonByText(driver, MyStoresPage.pInfoBirthMonth, DOBMonth);
-		takeScreenPrint(driver, folderPath);
+		EnterText( MyStoresPage.pInfoPassword, Password);
+		SelectDropdwonByIndex( MyStoresPage.pInfoBirthDate, Integer.parseInt(DBODate));
+		SelectDropdwonByValue( MyStoresPage.pInfoBirthYear, DOBYear);
+		SelectDropdwonByText( MyStoresPage.pInfoBirthMonth, DOBMonth);
+		takeScreenPrint(folderPath);
 	}
 
 	@DataProvider

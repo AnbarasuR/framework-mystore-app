@@ -7,7 +7,7 @@
       <class name="framework.javaframework.MyStoresTest">
         <methods>
           <include name="fnLaunchBrowser"/>
-          <include name="fnCreateNewAccoount"/>
+          <include name="fnCreateNewAccoount" invocation-numbers="0"/>
           <include name="printdata"/>
           <include name="fncreateTestReultFolder"/>
           <include name="closeBrowsers"/>

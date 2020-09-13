@@ -1,0 +1,5 @@
+#Store  the  Result Folder  path
+#Wed Sep 09 16:38:30 IST 2020
+browser=chrome
+log4j.appender.file.File=C\:\\temp\\info.log
+LogPath=C\:\\Projects\\javaframework\\TestResults\\Test Result WED 2020-09-09_16-33-49 PM
